@@ -1,8 +1,8 @@
 package types
 
 type SimplifyTask struct {
-	id         int
-	title      string
+	ID         string
+	Title      string
 	Iscomplete bool
 }
 
