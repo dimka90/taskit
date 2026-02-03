@@ -10,5 +10,5 @@ func main() {
 
 	task := internal.SimplifyTask{"dimka", "Cooking", false}
 	fmt.Println(task.MarkComplete())
-	fmt.Println(task.GetStatus())
+	fmt.Println(task)
 }

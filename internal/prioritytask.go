@@ -2,13 +2,6 @@ package internal
 
 import "fmt"
 
-type Task interface {
-	GetID() string
-	GetTitle() string
-	GetStatus() string
-	MarkComplete() error
-	String() string
-}
 type PriorityTask struct {
 	ID         string
 	Title      string
