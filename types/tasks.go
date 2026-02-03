@@ -10,4 +10,5 @@ type PriorityTask struct {
 	id         int
 	title      string
 	Iscomplete bool
+	priority   int
 }
