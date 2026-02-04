@@ -9,8 +9,23 @@ type PriorityTask struct {
 	Priority   int
 }
 
+var taskID int
+
+func generateTaskId() int {
+	taskID += 1
+	return taskID
+}
+func NewPriorityTask(title string, priority int) *PriorityTask {
+	return &PriorityTask{
+		ID:         fmt.Sprintf("%d", generateTaskId()),
+		Title:      title,
+		Iscomplete: false,
+		Priority:   priority,
+	}
+
+}
 func (t *PriorityTask) GetID() string {
-	return *&t.ID
+	return t.ID
 }
 
 func (t *PriorityTask) GetTitle() string {

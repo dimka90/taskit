@@ -5,23 +5,37 @@ import "fmt"
 type SimplifyTask struct {
 	ID         string
 	Title      string
-	Iscomplete bool
+	IsComplete bool
 }
 
+var id int
+
+func generateID() int {
+	id += 1
+	return id
+}
+func NewSimplifyTask(title string) *SimplifyTask {
+
+	return &SimplifyTask{
+		ID:         fmt.Sprintf("%d", generateID()),
+		Title:      title,
+		IsComplete: false,
+	}
+}
 func (t *SimplifyTask) GetID() string {
-	return *&t.ID
+	return t.ID
 }
 func (t *SimplifyTask) GetTitle() string {
-	return *&t.Title
+	return t.Title
 }
 func (t *SimplifyTask) GetStatus() string {
-	if !t.Iscomplete {
+	if !t.IsComplete {
 		return "pending"
 	}
 	return "Done"
 }
 func (t *SimplifyTask) MarkComplete() error {
-	t.Iscomplete = true
+	t.IsComplete = true
 	return nil
 }
 

@@ -33,7 +33,7 @@ func (tm *TaskManager) CompleteTask(taskId string) (bool, error) {
 	for _, task := range tm.tasks {
 		if task.GetID() == taskId {
 			if err := task.MarkComplete(); err != nil {
-				return false, nil
+				return false, err
 			}
 			return true, nil
 		}
@@ -44,7 +44,7 @@ func (tm *TaskManager) SaveToFile(filename string) error {
 
 	file, err := os.Create(filename)
 	if err != nil {
-		panic(err)
+		return err
 	}
 	defer file.Close()
 	json.NewEncoder(file).Encode(tm.tasks)
